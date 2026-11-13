@@ -66,3 +66,7 @@ content/         design data and uploaded media
 ## Deployment
 
 Every push to `main` triggers [the GitHub Pages workflow](.github/workflows/deploy.yml). It installs dependencies, runs `npm run build` and publishes `dist/`. A deploy usually takes about a minute.
+
+## License
+
+Copyright © 2026 Khurshidbek Urazaliev. All rights reserved. You may view the code, but you may not copy, reuse or redistribute it without permission. See [LICENSE](LICENSE) for the details.
