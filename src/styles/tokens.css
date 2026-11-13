@@ -1,0 +1,71 @@
+/* Frontend Hub — design tokens.
+   Cinematic: blue-black space under moody photographs, fog-white type set in
+   wide capitals, small tracked labels, and one cyan accent. */
+
+:root {
+  color-scheme: dark;
+
+  /* Ink — surfaces, darkest first. Blue-black, to sit under the photographs. */
+  --ink-0: #05080a;
+  --ink-1: #0a1014;
+  --ink-2: #111a20;
+  --ink-3: #1b2830;
+
+  /* Paper — text, brightest first. All three pass AA on --ink-0 to --ink-2. */
+  --paper: #eef3f4;
+  --dim: #a9b6bb;
+  --faint: #7b8a91;
+
+  /* Hairlines */
+  --line: rgb(238 243 244 / 0.14);
+  --line-2: rgb(238 243 244 / 0.26);
+
+  /* The one accent */
+  --accent: #2ad2ee;
+  --accent-ink: #021419;
+
+  /* Destructive actions only (delete, errors). Never decoration. */
+  --danger: #ff6b57;
+  --danger-ink: #1c0502;
+
+  /* Type */
+  --font-sans: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --fs-mono: 0.6875rem; /* the label size; the name is kept from when labels were mono */
+  --track: 0.18em; /* label tracking */
+  --fs-small: 0.8125rem;
+  --fs-body: 1rem;
+  --fs-lede: clamp(1.0625rem, 0.92rem + 0.5vw, 1.25rem);
+  --fs-h3: clamp(1.375rem, 1rem + 1.2vw, 2.125rem);
+  --fs-display: clamp(2.2rem, 5.6vw, 5.75rem);
+  --fs-hero: clamp(2.05rem, 6.1vw, 6.6rem);
+
+  /* Motion — one signature, used everywhere */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --t-fast: 180ms;
+  --t-med: 420ms;
+  --t-slow: 900ms;
+
+  /* Layout */
+  --margin: clamp(1.25rem, 3.2vw, 3rem);
+  --gutter: clamp(1.25rem, 2.4vw, 2.5rem);
+  --nav-h: 4.75rem;
+  --radius: 16px; /* frames: cards, screens, media, panels */
+  --radius-sm: 4px; /* controls: buttons, chips, inputs */
+
+  /* Short names used by the landing page's styles */
+  --bg: var(--ink-0);
+  --bg-2: var(--ink-1);
+  --bg-3: var(--ink-2);
+  --fg: var(--paper);
+  --font: var(--font-sans);
+  --pad: var(--margin);
+}
+
+@media (max-width: 760px) {
+  :root {
+    --nav-h: 4rem;
+  }
+}

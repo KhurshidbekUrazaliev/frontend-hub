@@ -1,0 +1,6 @@
+@import '@fontsource-variable/archivo/wdth.css';
+@import '@fontsource-variable/geist-mono/wght.css';
+@import 'lenis/dist/lenis.css';
+@import './tokens.css';
+@import './base.css';
+@import './shell.css';

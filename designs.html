@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Designs — Frontend Hub</title>
+    <meta
+      name="description"
+      content="Screens, motion studies, live builds and sites placed by hand on Frontend Hub."
+    />
+    <meta name="theme-color" content="#05080a" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="/src/styles/designs.css" />
+    <script type="module" src="/src/designs/main.js"></script>
+  </head>
+
+  <body class="page-designs">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <svg class="icons" aria-hidden="true">
+      <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5 13.5 8 9 12.5" /></symbol>
+      <symbol id="i-back" viewBox="0 0 16 16"><path d="M14.5 8h-12M7 3.5 2.5 8 7 12.5" /></symbol>
+      <symbol id="i-out" viewBox="0 0 16 16"><path d="M4 12 12 4M5.5 4H12v6.5" /></symbol>
+      <symbol id="i-up" viewBox="0 0 16 16"><path d="M8 14.5v-12M3.5 7 8 2.5 12.5 7" /></symbol>
+      <symbol id="i-close" viewBox="0 0 16 16"><path d="M3 3l10 10M13 3 3 13" /></symbol>
+      <symbol id="i-copy" viewBox="0 0 16 16"><path d="M5.5 5.5h8v8h-8zM2.5 10.5v-8h8" /></symbol>
+      <symbol id="i-search" viewBox="0 0 16 16"><path d="M7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10ZM10.6 10.6 14 14" /></symbol>
+      <!-- Profile marks for the footer. Drawn on a 24 grid, so each sets a stroke that renders at the same weight as the 1.5 of the 16-grid icons. -->
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <g stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+        </g>
+        <circle cx="16.9" cy="7.1" r="1.15" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <g stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="3" />
+          <path d="M8 10.75v5.75M11.5 16.5v-5.75M11.5 13.25a2.25 2.25 0 0 1 4.5 0v3.25" />
+        </g>
+        <circle cx="8" cy="7.6" r="1.15" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="i-github" viewBox="-1.5 -2.2 27 27">
+        <path stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+      </symbol>
+      <symbol id="i-telegram" viewBox="0 0 24 24">
+        <path stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4" />
+      </symbol>
+    </svg>
+
+    <header class="nav" data-nav>
+      <a class="nav__logo" href="./" aria-label="Frontend Hub, home">Frontend Hub<i aria-hidden="true">.</i></a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="./library.html">Library</a>
+        <a href="./designs.html" aria-current="page">Designs</a>
+        <a href="./admin.html" data-dev-only hidden>Admin</a>
+      </nav>
+      <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+        <span class="sr-only">Menu</span>
+        <i aria-hidden="true"></i>
+        <i aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <div class="menu" id="menu" data-menu hidden>
+      <nav class="menu__links" aria-label="Menu">
+        <a href="./"><small>01</small>Home</a>
+        <a href="./library.html"><small>02</small>Library</a>
+        <a href="./designs.html" aria-current="page"><small>03</small>Designs</a>
+        <a href="./admin.html" data-dev-only hidden><small>04</small>Admin</a>
+      </nav>
+    </div>
+
+    <main id="main">
+      <header class="page-head">
+        <div class="page-head__media" aria-hidden="true">
+          <img class="is-on" src="/src/media/layout-desk.jpg" alt="" fetchpriority="high" decoding="async" />
+        </div>
+        <h1 class="page-head__title" data-page-title>Designs<sup data-count="designs"></sup></h1>
+        <p class="page-head__lede" data-page-in>
+          Screens, motion studies, live builds and sites, straight from the bench. Open any piece for the full
+          view.
+        </p>
+      </header>
+
+      <div class="filters" data-page-in data-filter-bar hidden>
+        <div class="filters__chips" role="group" aria-label="Filter by kind" data-filters></div>
+        <label class="filters__search">
+          <span class="visually-hidden">Search designs</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-search" /></svg>
+          <input type="search" placeholder="Search designs" autocomplete="off" spellcheck="false" data-search />
+          <kbd aria-hidden="true">/</kbd>
+        </label>
+      </div>
+
+      <div class="gallery" data-gallery></div>
+
+      <p class="lib-empty" data-no-match hidden>
+        No design matches that.
+        <button class="link" type="button" data-clear>Clear filters</button>
+      </p>
+
+      <section class="bench" data-empty hidden>
+        <p class="label">Nothing placed yet</p>
+        <h2 class="display">The bench is clear.</h2>
+        <p class="bench__text">Nothing has been placed here yet.</p>
+        <div class="bench__dev" data-dev-only hidden>
+          <p class="bench__text">
+            Designs are placed through the admin panel, which runs on your own machine. Open it and drop in
+            your first piece.
+          </p>
+          <a class="btn btn--solid" href="./admin.html">
+            Open the admin panel
+            <span class="swap" aria-hidden="true">
+              <svg class="icon"><use href="#i-arrow" /></svg><svg class="icon"><use href="#i-arrow" /></svg>
+            </span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot foot--page">
+      <div class="foot__next">
+        <p class="label">Next</p>
+        <a href="./library.html">
+          Open the library
+          <span class="swap" aria-hidden="true">
+            <svg class="icon"><use href="#i-arrow" /></svg><svg class="icon"><use href="#i-arrow" /></svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="foot__grid">
+        <p class="foot__blurb">
+          A reference library for people who build interfaces. Everything here is running code you can open, tune and
+          take with you.
+        </p>
+        <nav class="foot__col" aria-label="Explore">
+          <p class="label">Explore</p>
+          <a href="./">Home</a>
+          <a href="./library.html">Library</a>
+          <a href="./admin.html" data-dev-only hidden>Admin</a>
+        </nav>
+        <div class="foot__col">
+          <p class="label">Colophon</p>
+          <p>Set in Archivo and Geist Mono.</p>
+          <p>Built with Vite, GSAP, Three.js and Lenis.</p>
+          <p>Every number here is counted from the source.</p>
+        </div>
+        <div class="foot__col">
+          <p class="label">Contact</p>
+          <a href="mailto:ummahfaris@gmail.com">ummahfaris@<wbr />gmail.com</a>
+          <p>Busan, South Korea</p>
+        </div>
+        <nav class="foot__col foot__social" aria-label="Elsewhere">
+          <p class="label">Elsewhere</p>
+          <a href="https://www.instagram.com/cfarisc19/" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-instagram" /></svg><span>Instagram</span>
+          </a>
+          <a href="https://www.linkedin.com/in/khurshidbekurazaliev" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg><span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/KhurshidbekUrazaliev" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg><span>GitHub</span>
+          </a>
+          <a href="https://t.me/lu3frv" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-telegram" /></svg><span>Telegram</span>
+          </a>
+        </nav>
+      </div>
+      <p class="foot__mark" data-word aria-hidden="true">Frontend Hub</p>
+      <div class="foot__base label">
+        <span>© 2026 Frontend Hub</span>
+        <button type="button" data-top>Back to top</button>
+      </div>
+    </footer>
+
+    <div class="sheet" data-sheet role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden></div>
+
+    <div class="curtain" aria-hidden="true">
+      <div class="curtain__label"><span>Designs</span></div>
+    </div>
+    <div class="cursor-label" aria-hidden="true"></div>
+  </body>
+</html>

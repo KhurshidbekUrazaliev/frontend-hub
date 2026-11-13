@@ -1,0 +1,49 @@
+.spring {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.spring__tether {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.spring__tether line {
+  stroke: rgb(238 243 244 / 0.45);
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+}
+
+.spring__anchor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px;
+  border-radius: 50%;
+  background: #7b8a91;
+}
+
+.spring__puck {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  margin: -32px;
+  border: 0;
+  border-radius: 50%;
+  background: #2ad2ee;
+  cursor: grab;
+  touch-action: none;
+  will-change: transform;
+}
+
+.spring__puck:active {
+  cursor: grabbing;
+}

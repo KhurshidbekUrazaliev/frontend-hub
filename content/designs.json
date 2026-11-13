@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "designs": [
+    {
+      "id": "d-sample0type01",
+      "slug": "type-specimen-sheet",
+      "type": "image",
+      "title": "Type specimen sheet",
+      "summary": "A sample entry, here to show how an image design looks with more than one frame.\n\nReplace it or delete it from the admin panel.",
+      "tags": [
+        "sample",
+        "typography",
+        "poster"
+      ],
+      "url": "",
+      "code": {
+        "html": "",
+        "css": "",
+        "js": ""
+      },
+      "media": [
+        {
+          "src": "./content/media/d-sample0type01/specimen-sheet.svg",
+          "kind": "image",
+          "width": 900,
+          "height": 1200,
+          "alt": "A type specimen poster: a large Aa with cap height, x-height and baseline marked, above samples of weight, width and leading."
+        },
+        {
+          "src": "./content/media/d-sample0type01/grid-study.svg",
+          "kind": "image",
+          "width": 1600,
+          "height": 1000,
+          "alt": "A twelve-column grid study with a header, a main area, two cards and a cyan aside blocked out on it."
+        }
+      ],
+      "cover": "./content/media/d-sample0type01/specimen-sheet.svg",
+      "published": true,
+      "featured": true,
+      "order": 0,
+      "createdAt": "2026-11-12T09:00:00.000Z",
+      "updatedAt": "2026-11-13T00:27:55.436Z"
+    },
+    {
+      "id": "d-sample0code03",
+      "slug": "breathing-grid",
+      "type": "code",
+      "title": "Breathing grid",
+      "summary": "A sample entry, here to show how a live code design looks. The source below is running in the frame beside it.\n\nReplace it or delete it from the admin panel.",
+      "tags": [
+        "sample",
+        "css animation",
+        "grid"
+      ],
+      "url": "",
+      "code": {
+        "html": "<div class=\"grid\" aria-hidden=\"true\"></div>",
+        "css": ".grid {\n  display: grid;\n  grid-template-columns: repeat(9, 1fr);\n  gap: 10px;\n  width: min(70vmin, 360px);\n}\n\n.grid i {\n  aspect-ratio: 1;\n  animation: breathe 2.4s ease-in-out infinite;\n  /* a negative delay starts each cell part-way through the loop */\n  animation-delay: calc(var(--d) * -1s);\n}\n\n@keyframes breathe {\n  0%,\n  100% {\n    transform: scale(0.2);\n    background: #27343b;\n  }\n  50% {\n    transform: scale(1);\n    background: #2ad2ee;\n  }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .grid i {\n    animation: none;\n    transform: scale(0.6);\n    background: #2ad2ee;\n  }\n}",
+        "js": "const grid = document.querySelector('.grid');\nconst size = 9;\nconst centre = (size - 1) / 2;\n\nfor (let i = 0; i < size * size; i++) {\n  const cell = document.createElement('i');\n  // the further a cell is from the centre, the later it breathes\n  const distance = Math.hypot((i % size) - centre, Math.floor(i / size) - centre);\n  cell.style.setProperty('--d', (distance * 0.22).toFixed(2));\n  grid.append(cell);\n}"
+      },
+      "media": [],
+      "cover": "",
+      "published": true,
+      "featured": true,
+      "order": 1,
+      "createdAt": "2026-11-12T09:05:00.000Z",
+      "updatedAt": "2026-11-12T09:05:00.000Z"
+    },
+    {
+      "id": "d-sample0ease02",
+      "slug": "four-curves",
+      "type": "image",
+      "title": "Four curves",
+      "summary": "A sample entry, here to show how a single-image design looks.\n\nReplace it or delete it from the admin panel.",
+      "tags": [
+        "sample",
+        "motion",
+        "diagram"
+      ],
+      "url": "",
+      "code": {
+        "html": "",
+        "css": "",
+        "js": ""
+      },
+      "media": [
+        {
+          "src": "./content/media/d-sample0ease02/easing-chart.svg",
+          "kind": "image",
+          "width": 1600,
+          "height": 1000,
+          "alt": "Four easing curves drawn side by side: linear, cubic out, expo out and back out, with expo out highlighted in cyan."
+        }
+      ],
+      "cover": "./content/media/d-sample0ease02/easing-chart.svg",
+      "published": true,
+      "featured": true,
+      "order": 2,
+      "createdAt": "2026-11-12T09:10:00.000Z",
+      "updatedAt": "2026-11-12T09:10:00.000Z"
+    }
+  ]
+}

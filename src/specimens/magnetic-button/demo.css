@@ -1,0 +1,31 @@
+.magnet {
+  display: grid;
+  place-items: center;
+  width: 148px;
+  aspect-ratio: 1;
+  border: 1px solid rgb(238 243 244 / 0.4);
+  border-radius: 50%;
+  background: transparent;
+  color: #eef3f4;
+  font: 500 11px/1 'Geist Mono Variable', ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  will-change: transform;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s,
+    color 0.3s;
+}
+
+.magnet:hover,
+.magnet:focus-visible {
+  border-color: #2ad2ee;
+  background: #2ad2ee;
+  color: #05080a;
+}
+
+.magnet__label {
+  display: block;
+  pointer-events: none;
+}

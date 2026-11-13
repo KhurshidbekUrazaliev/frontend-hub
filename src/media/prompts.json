@@ -1,0 +1,152 @@
+{
+  "styles": {
+    "dark": "Photorealistic cinematic photograph, full-frame camera, 35mm lens, natural available light at blue hour. Muted, desaturated colour grade: slate blue, teal-grey and charcoal, with one small warm amber light as the only warm accent. Deep shadows that keep their detail, soft atmospheric haze, fine film grain. Calm, quiet, monumental mood. No text, no readable words, no numbers, no signage, no logos, no watermark, no border. Not an illustration, not a 3D render.",
+    "light": "Museum-catalogue still-life photograph. The single object stands alone, centred slightly below the middle of the frame, on a seamless warm off-white paper backdrop that curves up behind it. Soft, diffuse north daylight from the upper left, one gentle natural shadow falling to the lower right. Medium-format camera, 80mm lens, f/8, everything sharp. Muted, natural, slightly warm colours. Generous empty paper all around the object. No text, no labels, no captions, no watermark, no border. Photorealistic, not an illustration, not a 3D render."
+  },
+  "items": [
+    {
+      "name": "hero-layout",
+      "aspect": "16:9",
+      "style": "dark",
+      "prompt": "A monumental brutalist concrete building with a strict, repeating grid of deep-set square windows, seen from a wide empty stone plaza under heavy storm clouds. A single window glows warm amber. One tiny lone figure in a long dark coat walks across the wet plaza, seen from behind, giving a sense of scale. The paving stones are wet and reflect the sky. The building fills the centre and right of the frame; the left third of the frame is open dark sky and empty plaza, simple and uncluttered. The bottom edge of the frame is dark."
+    },
+    {
+      "name": "hero-type",
+      "aspect": "16:9",
+      "style": "dark",
+      "prompt": "Inside a dim old letterpress print workshop at night. On the right, shallow wooden type cases full of worn metal type and a few large wooden display letters stand on a heavy workbench, lit by one small warm amber work lamp. Cool blue light falls from a tall window behind. In the middle distance a lone printer in a dark apron, seen from behind, leans over an iron hand press. The letterforms are individual, worn and mirror-reversed. The left third of the frame falls into deep, quiet shadow, simple and uncluttered. The bottom edge of the frame is dark."
+    },
+    {
+      "name": "hero-interaction",
+      "aspect": "16:9",
+      "style": "dark",
+      "prompt": "A vast, dim mid-century control room. A long curved console of matte dark metal runs from the centre to the right of the frame, covered in rows of unlabelled toggle switches, round dials and small indicator lamps, all unlit except one lamp glowing warm amber. A lone operator in a dark jacket, seen from behind, reaches one hand toward the switch under that lamp. Cool blue light from high windows, haze in the air. The left third of the frame is dark empty wall and floor, simple and uncluttered. The bottom edge of the frame is dark."
+    },
+    {
+      "name": "hero-motion",
+      "aspect": "16:9",
+      "style": "dark",
+      "prompt": "A lone figure in a long dark coat stands perfectly still on a dim, empty train platform, seen from behind, while a train rushes past on the right as long-exposure streaks of pale light and soft horizontal motion blur. One warm amber platform lamp. Wet concrete reflects the streaks. The figure is sharp; only the train is blurred. The left third of the frame is dark platform and open evening sky, simple and uncluttered. The bottom edge of the frame is dark."
+    },
+    {
+      "name": "hero-webgl",
+      "aspect": "16:9",
+      "style": "dark",
+      "prompt": "A tall, dark, bare concrete hall. On the right, low light passes through a wall of thick glass blocks and large glass prisms, throwing shimmering caustic light patterns and a faint spectrum of colour across the concrete floor and wall. A lone small figure in a dark coat stands in the pool of light, seen from behind, looking at it. Dust hangs in the beams. The left third of the frame stays in deep shadow, simple and uncluttered. The bottom edge of the frame is dark."
+    },
+    {
+      "name": "end-pier",
+      "aspect": "16:9",
+      "style": "dark",
+      "prompt": "A lone figure in a long dark coat walks away from the camera along a long, straight concrete pier that runs to the horizon over perfectly still water and disappears into dense fog. Far ahead, one small warm amber lamp glows in the fog. Symmetrical one-point perspective with the pier centred, vast empty sky above. Minimal and quiet."
+    },
+    {
+      "name": "layout-stair",
+      "aspect": "3:4",
+      "style": "dark",
+      "prompt": "Looking straight up the square well of a brutalist concrete stairwell: flights and landings repeat as nested rectangles receding upward to a small skylight of pale blue light. One warm amber wall lamp on a single landing. Strict geometry, soft haze."
+    },
+    {
+      "name": "layout-desk",
+      "aspect": "3:2",
+      "style": "dark",
+      "prompt": "An architect's drafting table seen from directly above in a dark studio: a large sheet of faintly gridded paper with pencil construction lines and rectangles, a steel ruler, a set square, a mechanical pencil and a brass compass. A small pool of warm amber lamp light at one corner; the rest falls into cool blue shadow. The paper carries only lines and shapes, no writing."
+    },
+    {
+      "name": "type-sorts",
+      "aspect": "3:4",
+      "style": "dark",
+      "prompt": "Macro photograph of rows of worn metal letterpress type sorts packed tightly together, seen at a low raking angle. Their small raised mirror-reversed faces catch a thin line of cool light, with one warm amber reflection. Extremely shallow depth of field; most of the frame melts into dark blur."
+    },
+    {
+      "name": "type-sheets",
+      "aspect": "3:2",
+      "style": "dark",
+      "prompt": "Large freshly printed sheets of off-white paper hang drying from wooden racks in a dark print shop. Each sheet shows only a huge cropped fragment of one bold black letterform: curves, stems and counters cut off by the paper's edge, abstract and unreadable. Cool blue window light from behind makes the paper glow slightly; one warm amber lamp in the far corner."
+    },
+    {
+      "name": "interaction-key",
+      "aspect": "3:4",
+      "style": "dark",
+      "prompt": "Extreme close-up of a fingertip about to press a single round push-button that glows warm amber on a matte black instrument panel. Around it, rows of unlit buttons and small knobs fade into dark, soft blur. Cool blue rim light on the finger. Very shallow depth of field. The panel has no labels or markings."
+    },
+    {
+      "name": "interaction-patch",
+      "aspect": "3:2",
+      "style": "dark",
+      "prompt": "A vintage telephone switchboard patch bay in a dark room: a tall panel of brass jack sockets with a tangle of cloth-covered patch cables plugged in and hanging in loose arcs. A single tiny indicator lamp glows warm amber. Cool blue side light, haze, shallow depth of field. The panel has no labels."
+    },
+    {
+      "name": "motion-pendulum",
+      "aspect": "3:4",
+      "style": "dark",
+      "prompt": "Long-exposure photograph in a dark, bare studio: a small lamp swinging on a long cord has traced dozens of fine overlapping arcs of pale light that slowly decay into a rosette pattern, like a harmonograph, floating above a dark concrete floor. The light trails are cool white with one warm amber arc. Near-black surroundings with faint haze."
+    },
+    {
+      "name": "motion-road",
+      "aspect": "3:2",
+      "style": "dark",
+      "prompt": "Long-exposure photograph of a mountain road winding through dark hills in fog: continuous ribbons of pale white and warm amber light trails trace the curves of the road into the distance. No vehicles visible, only the trails. Slate blue hills under low cloud."
+    },
+    {
+      "name": "webgl-caustics",
+      "aspect": "3:4",
+      "style": "dark",
+      "prompt": "Macro photograph: light passing through a rippled glass surface throws a net of bright, shimmering caustic lines with fine spectral colour fringes onto a dark slate surface. Abstract, liquid, luminous. A mostly dark frame in cool tones with a single warm amber glint."
+    },
+    {
+      "name": "webgl-dunes",
+      "aspect": "3:2",
+      "style": "dark",
+      "prompt": "Wind-carved sand dunes at dusk under a slate blue sky: sharp ridge lines and fine regular ripples cover the slopes like a contour map, lit by very low raking light. A tiny lone figure in a dark coat stands on a distant ridge. Cold, quiet. One faint warm amber glow at the horizon."
+    },
+    {
+      "name": "plate-stack",
+      "aspect": "4:5",
+      "style": "light",
+      "prompt": "Five thin square plates of different materials (raw concrete, frosted glass, brushed steel, cork and thick cotton paper) stacked with small even gaps between them on four slim brass pins, each plate slightly offset from the one below, so the stack reads as five separate floating layers."
+    },
+    {
+      "name": "plate-layout",
+      "aspect": "4:5",
+      "style": "light",
+      "prompt": "An old steel engineer's try square with a dark hardwood handle, standing upright in an L shape, its steel blade lightly worn with fine engraved graduation lines."
+    },
+    {
+      "name": "plate-type",
+      "aspect": "4:5",
+      "style": "light",
+      "prompt": "A single large antique wooden letterpress type block, about the size of a hand, standing upright. Its raised face is one bold ampersand, darkened with old black ink. The wood edges are worn, chipped and stained."
+    },
+    {
+      "name": "plate-interaction",
+      "aspect": "4:5",
+      "style": "light",
+      "prompt": "A single vintage toggle switch: a small chrome lever on a round dark brown bakelite base with a brass rim, mounted on a short square block of pale oak."
+    },
+    {
+      "name": "plate-motion",
+      "aspect": "4:5",
+      "style": "light",
+      "prompt": "A classic pyramid-shaped wooden mechanical metronome with its front cover removed. The steel pendulum arm is caught mid-swing and slightly motion-blurred while everything else is perfectly sharp."
+    },
+    {
+      "name": "plate-webgl",
+      "aspect": "4:5",
+      "style": "light",
+      "prompt": "A clear triangular glass prism lying on the paper. A thin beam of light enters one face and leaves the other as a small, soft spectrum of colour spread across the paper."
+    },
+    {
+      "name": "hero-motion2",
+      "aspect": "16:9",
+      "style": "dark",
+      "prompt": "A dim, empty train platform. The left half of the frame is nearly empty: dark platform canopy, wet concrete and open evening sky, quiet and low in detail. Right of centre, a lone figure in a long dark coat stands perfectly still, seen from behind. Along the far right edge a train rushes past as long-exposure streaks of pale light and soft horizontal motion blur. One warm amber platform lamp above the figure. Wet concrete reflects the streaks. The figure is sharp; only the train is blurred. The bottom edge of the frame is dark."
+    },
+    {
+      "name": "hero-type2",
+      "aspect": "16:9",
+      "style": "dark",
+      "prompt": "Inside a dim old letterpress print workshop at night. The left half of the frame is nearly empty: deep shadow, a dark bare wall and floor, quiet and low in detail. In the right half, a lone printer in a dark apron, seen from behind, leans over an iron hand press beside shallow wooden type cases full of worn metal type and a few large wooden display letters, lit by one small warm amber work lamp. Cool blue light falls from a tall window on the right. The letterforms are individual, worn and mirror-reversed. The bottom edge of the frame is dark."
+    }
+  ]
+}

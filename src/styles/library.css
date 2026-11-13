@@ -1,0 +1,45 @@
+@import './page.css';
+@import './sheet.css';
+
+.lib-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gutter);
+  padding: var(--gutter) var(--margin) clamp(5rem, 10vw, 9rem);
+}
+
+.lib-grid .spec__stage {
+  flex: none;
+  aspect-ratio: 4 / 3;
+}
+
+.spec.is-out {
+  display: none;
+}
+
+.lib-empty {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 1.25rem;
+  padding: 3rem var(--margin) clamp(6rem, 12vw, 10rem);
+  color: var(--dim);
+  font-size: var(--fs-lede);
+}
+
+.lib-empty .link {
+  color: var(--paper);
+}
+
+@media (max-width: 1099px) {
+  .lib-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .lib-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

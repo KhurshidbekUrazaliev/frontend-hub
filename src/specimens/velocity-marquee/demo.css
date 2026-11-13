@@ -1,0 +1,41 @@
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.marquee:active {
+  cursor: grabbing;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee__unit {
+  flex: none;
+  padding-right: 0.22em;
+  font-family: 'Archivo Variable', sans-serif;
+  font-size: clamp(44px, 15cqi, 160px);
+  font-stretch: 62%;
+  font-weight: 800;
+  line-height: 1.05;
+  text-transform: uppercase;
+  white-space: pre;
+}
+
+.marquee__unit i {
+  font-style: normal;
+  color: transparent;
+  -webkit-text-stroke: 1px #eef3f4;
+}
+
+.marquee__unit b {
+  font-weight: inherit;
+  color: #2ad2ee;
+}

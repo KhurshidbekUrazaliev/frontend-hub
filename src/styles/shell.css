@@ -1,0 +1,859 @@
+/* Shared shell: buttons, links, navigation, the specimen card, the footer and
+   the layers that sit above every page. */
+
+/* ---------- Buttons ---------- */
+
+/* The working button: an outline that fills on hover. */
+.btn {
+  --btn-bg: transparent;
+  --btn-fg: var(--paper);
+  --btn-fill: var(--paper);
+  --btn-fill-fg: var(--ink-0);
+
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.95rem 1.1rem 0.95rem 1.25rem;
+  overflow: hidden;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font: 700 var(--fs-mono) / 1 var(--font-sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color var(--t-med) var(--ease-out),
+    border-color var(--t-med) var(--ease-out);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  background: var(--btn-fill);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.55s var(--ease-in-out);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  color: var(--btn-fill-fg);
+  border-color: var(--btn-fill);
+}
+
+.btn:hover::before,
+.btn:focus-visible::before {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.btn--solid {
+  --btn-bg: var(--accent);
+  --btn-fg: var(--accent-ink);
+  border-color: var(--accent);
+}
+
+.btn--sm {
+  padding: 0.7rem 0.85rem 0.7rem 0.95rem;
+  gap: 0.6rem;
+}
+
+.btn[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* The call to action: a cyan block with its arrow in a box of its own. */
+.cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.1rem;
+  height: 3.5rem;
+  padding: 0 0.5rem 0 1.5rem;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--accent-ink);
+  isolation: isolate;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--paper);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.6s var(--ease-in-out);
+}
+
+.cta__label {
+  font: 700 0.75rem/1 var(--font-sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cta__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow: hidden;
+  border-radius: 3px;
+  background: rgb(2 20 25 / 0.14);
+}
+
+.cta__icon .icon {
+  grid-area: 1 / 1;
+  width: 1.125rem;
+  height: 1.125rem;
+  transition: translate 0.55s var(--ease-in-out);
+}
+
+.cta__icon .icon:last-child {
+  translate: -220% 0;
+}
+
+@media (hover: hover) {
+  .cta:hover::before {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  .cta:hover .cta__icon .icon:first-child {
+    translate: 220% 0;
+  }
+
+  .cta:hover .cta__icon .icon:last-child {
+    translate: 0 0;
+  }
+}
+
+.cta--light {
+  background: var(--paper);
+}
+
+.cta--light::before {
+  background: var(--accent);
+}
+
+/* Arrow that leaves on one side and re-enters from the other */
+.swap {
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  font-size: 0.875rem;
+  flex: none;
+}
+
+.swap .icon {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.swap .icon + .icon {
+  transform: translateX(-120%);
+}
+
+a:hover .swap .icon:first-child,
+a:focus-visible .swap .icon:first-child,
+button:hover .swap .icon:first-child,
+button:focus-visible .swap .icon:first-child {
+  transform: translateX(120%);
+}
+
+a:hover .swap .icon + .icon,
+a:focus-visible .swap .icon + .icon,
+button:hover .swap .icon + .icon,
+button:focus-visible .swap .icon + .icon {
+  transform: none;
+}
+
+.swap--out .icon + .icon {
+  transform: translate(-120%, 120%);
+}
+
+a:hover .swap--out .icon:first-child,
+a:focus-visible .swap--out .icon:first-child,
+button:hover .swap--out .icon:first-child,
+button:focus-visible .swap--out .icon:first-child {
+  transform: translate(120%, -120%);
+}
+
+/* ---------- Text link ---------- */
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding-block: 0.4em;
+  font: 600 var(--fs-mono) / 1.4 var(--font-sans);
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--accent);
+}
+
+.link:hover::after,
+.link:focus-visible::after {
+  animation: link-line 0.7s var(--ease-in-out);
+}
+
+@keyframes link-line {
+  0% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  50% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  50.01% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* ---------- Navigation ---------- */
+
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-h);
+  padding: 0 var(--margin);
+  transition:
+    translate 0.6s var(--ease-out),
+    background-color 0.4s,
+    backdrop-filter 0.4s;
+}
+
+.nav.is-solid {
+  background: rgb(5 8 10 / 0.72);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.nav.is-hidden {
+  translate: 0 -100%;
+}
+
+.nav__logo {
+  font: 800 0.9375rem/1 var(--font-sans);
+  font-stretch: 112%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav__logo i {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.nav__links {
+  display: flex;
+  gap: clamp(1.5rem, 3.4vw, 3.25rem);
+}
+
+.nav__links a {
+  position: relative;
+  padding: 0.75rem 0;
+  font: 600 var(--fs-mono) / 1 var(--font-sans);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgb(238 243 244 / 0.8);
+  transition: color 0.3s;
+}
+
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.35rem;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.nav__links a[aria-current='page'] {
+  color: var(--paper);
+}
+
+.nav__links a[aria-current='page']::after {
+  transform: scaleX(1);
+}
+
+@media (hover: hover) {
+  .nav__links a:hover {
+    color: var(--paper);
+  }
+
+  .nav__links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+.nav__burger {
+  display: none;
+  position: relative;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-right: -0.5rem;
+}
+
+.nav__burger i {
+  position: absolute;
+  right: 0.5rem;
+  height: 1.5px;
+  background: var(--paper);
+  transition:
+    translate 0.4s var(--ease-out),
+    rotate 0.4s var(--ease-out),
+    width 0.4s var(--ease-out);
+}
+
+.nav__burger i:nth-of-type(1) {
+  top: 1.05rem;
+  width: 1.6rem;
+}
+
+.nav__burger i:nth-of-type(2) {
+  top: 1.6rem;
+  width: 1rem;
+}
+
+.nav__burger[aria-expanded='true'] i:nth-of-type(1) {
+  translate: 0 0.28rem;
+  rotate: 45deg;
+}
+
+.nav__burger[aria-expanded='true'] i:nth-of-type(2) {
+  width: 1.6rem;
+  translate: 0 -0.27rem;
+  rotate: -45deg;
+}
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  align-items: end;
+  padding: 6rem var(--margin) 3.5rem;
+  background: rgb(5 8 10 / 0.94);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+
+.menu[hidden] {
+  display: none;
+}
+
+.menu__links {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.menu__links a {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--line);
+  font: 800 clamp(2rem, 10.5vw, 3rem) / 1.15 var(--font-sans);
+  font-stretch: 112%;
+  text-transform: uppercase;
+}
+
+.menu__links small {
+  font: 600 var(--fs-mono) / 1 var(--font-sans);
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .nav__links {
+    display: none;
+  }
+
+  .nav__burger {
+    display: block;
+  }
+}
+
+/* ---------- Specimen card ---------- */
+
+.spec {
+  position: relative;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--ink-1);
+  transition: border-color var(--t-med) var(--ease-out);
+}
+
+.spec:hover,
+.spec:focus-within {
+  border-color: var(--line-2);
+}
+
+.spec__stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 0%, rgb(42 210 238 / 0.05), transparent 60%);
+}
+
+.spec__host,
+.specimen-host {
+  position: absolute;
+  inset: 0;
+}
+
+.spec__meta {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  column-gap: 1rem;
+  padding: 0.95rem 1.1rem;
+  border-top: 1px solid var(--line);
+  color: var(--paper);
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color var(--t-med) var(--ease-out);
+}
+
+.spec__meta:hover,
+.spec__meta:focus-visible {
+  background: var(--ink-2);
+}
+
+.spec__id,
+.spec__facts {
+  font: 600 var(--fs-mono) / 1.5 var(--font-sans);
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  color: var(--faint);
+  white-space: nowrap;
+}
+
+.spec__id {
+  color: var(--accent);
+}
+
+.spec__title {
+  overflow: hidden;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.spec__meta .swap {
+  color: var(--accent);
+}
+
+/* The card asks about its own width, not the viewport's. */
+@container (max-width: 27rem) {
+  .spec__facts {
+    display: none;
+  }
+
+  .spec__meta {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+}
+
+/* ---------- Footer ---------- */
+
+.foot {
+  padding: clamp(3rem, 6vw, 5rem) var(--margin) 2rem;
+  overflow: clip;
+}
+
+/* On the inner pages the footer opens with the way to the next page. */
+.foot--page {
+  padding-top: clamp(4rem, 8vw, 7rem);
+  border-top: 1px solid var(--line);
+}
+
+.foot__next {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.foot__next a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  width: fit-content;
+  font: 800 clamp(2.2rem, 6.6vw, 7rem) / 0.95 var(--font-sans);
+  font-stretch: 116%;
+  letter-spacing: -0.012em;
+  text-transform: uppercase;
+  transition: color var(--t-med) var(--ease-out);
+}
+
+.foot__next .swap {
+  font-size: 0.6em;
+}
+
+.foot__next a:hover,
+.foot__next a:focus-visible {
+  color: var(--accent);
+}
+
+.foot__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) repeat(4, minmax(0, 1fr));
+  gap: 2.5rem var(--gutter);
+}
+
+.foot__blurb {
+  max-width: 30ch;
+  font: 500 clamp(1.125rem, 1.6vw, 1.5rem) / 1.3 var(--font-sans);
+  letter-spacing: -0.01em;
+}
+
+.foot__col {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+  font-size: 0.9375rem;
+  color: var(--dim);
+}
+
+.foot__col .label {
+  margin-bottom: 0.7rem;
+  color: var(--faint);
+}
+
+.foot__col a {
+  justify-self: start;
+  max-width: 100%;
+  overflow-wrap: anywhere; /* a long address breaks rather than spill on the narrowest phones */
+  color: var(--paper);
+  transition: color 0.3s;
+}
+
+@media (hover: hover) {
+  .foot__col a:hover {
+    color: var(--accent);
+  }
+}
+
+/* Profile links: each mark sits before its name, quieter than the name until
+   the link is pointed at, then turns cyan and lifts a touch. */
+.foot__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.foot__social .icon {
+  width: 1.15em;
+  height: 1.15em;
+  color: var(--dim);
+  transition:
+    color 0.3s,
+    translate 0.5s var(--ease-out);
+}
+
+.foot__social a:focus-visible .icon {
+  color: var(--accent);
+}
+
+@media (hover: hover) {
+  .foot__social a:hover .icon {
+    color: var(--accent);
+    translate: 0 -0.125rem;
+  }
+}
+
+/* The wordmark is fitted to the width by script; letters near the pointer narrow and lighten. */
+.foot__mark {
+  margin: clamp(3rem, 7vw, 6rem) -0.04em 0;
+  overflow-x: visible;
+  overflow-y: clip; /* the letters rise into place from below this edge */
+  font: 800 13.1vw/0.8 var(--font-sans);
+  font-stretch: 100%;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.foot__mark > span {
+  display: inline-block;
+}
+
+.foot__mark .char {
+  display: inline-block;
+  font-stretch: calc(var(--w, 100) * 1%);
+  font-weight: calc(var(--g, 800));
+}
+
+.foot__base {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--faint);
+}
+
+.foot__base :is(a, button) {
+  color: var(--dim);
+  letter-spacing: inherit; /* buttons reset these two by default */
+  text-transform: inherit;
+  transition: color 0.3s;
+}
+
+.foot__base :is(a, button):hover {
+  color: var(--accent);
+}
+
+/* Four columns need the blurb on its own row below a wide desktop, and two rows of two on a tablet or phone. */
+@media (max-width: 1199px) {
+  .foot__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .foot__blurb {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 899px) {
+  .foot__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Layers above the page ---------- */
+
+/* The curtain covers one page and lifts off the next. */
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  border-top: 2px solid var(--accent);
+  background: var(--ink-1);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* With scripting on, an inner page stays covered until it reveals itself.
+   The landing page has an opening of its own, so its curtain starts lifted. */
+.js .curtain {
+  visibility: visible;
+}
+
+.js .page-home .curtain {
+  visibility: hidden;
+}
+
+.curtain__label {
+  overflow: hidden;
+  padding-block: 0.06em;
+  font-size: clamp(2.4rem, 7.4vw, 7.5rem);
+  font-stretch: 116%;
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.012em;
+  text-transform: uppercase;
+}
+
+.curtain__label span {
+  display: block;
+}
+
+.cursor-label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  padding: 0.45rem 0.7rem;
+  border-radius: 3px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: 700 0.625rem/1 var(--font-sans);
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  z-index: 120;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm);
+  background: var(--ink-2);
+  font: 600 var(--fs-mono) / 1.4 var(--font-sans);
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 1rem);
+  transition:
+    opacity 0.3s linear,
+    transform 0.5s var(--ease-out);
+}
+
+.toast.is-on {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ---------- Range input ---------- */
+
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 1.5rem;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.range::-webkit-slider-runnable-track {
+  height: 2px;
+  border-radius: 2px;
+  background: var(--line-2);
+}
+
+.range::-moz-range-track {
+  height: 2px;
+  border-radius: 2px;
+  background: var(--line-2);
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0.7rem;
+  height: 1.25rem;
+  margin-top: calc(-0.625rem + 1px);
+  border: 0;
+  border-radius: 2px;
+  background: var(--paper);
+  transition: background-color 0.2s linear;
+}
+
+.range::-moz-range-thumb {
+  width: 0.7rem;
+  height: 1.25rem;
+  border: 0;
+  border-radius: 2px;
+  background: var(--paper);
+}
+
+.range:hover::-webkit-slider-thumb,
+.range:focus-visible::-webkit-slider-thumb {
+  background: var(--accent);
+}
+
+.range:hover::-moz-range-thumb,
+.range:focus-visible::-moz-range-thumb {
+  background: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swap .icon,
+  .btn::before,
+  .cta::before,
+  .nav {
+    transition-duration: 0.01ms !important;
+  }
+
+  .link:hover::after,
+  .link:focus-visible::after {
+    animation: none;
+  }
+}
+
+/* ---------- Fail-safe ----------
+   If the page script never starts, nothing may stay hidden behind an
+   animation that will never run. `is-ready` is set the moment it does. */
+
+.js:not(.is-ready) .curtain {
+  animation: fh-failsafe-hide 0s linear 6s forwards;
+}
+
+.js:not(.is-ready) [data-reveal] {
+  animation: fh-failsafe-show 0s linear 6s forwards;
+}
+
+@keyframes fh-failsafe-hide {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes fh-failsafe-show {
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}

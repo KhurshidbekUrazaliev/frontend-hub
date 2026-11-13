@@ -1,0 +1,19 @@
+/* Needs a variable font with weight and width axes. Archivo has both. */
+.prox {
+  display: flex;
+  margin: 0;
+  font-family: 'Archivo Variable', sans-serif;
+  font-size: clamp(40px, 13.5cqi, 136px);
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: pre;
+  cursor: default;
+  user-select: none;
+}
+
+.prox span {
+  display: inline-block;
+  font-variation-settings:
+    'wght' var(--wght, 300),
+    'wdth' var(--wdth, 62);
+}

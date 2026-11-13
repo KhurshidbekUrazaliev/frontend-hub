@@ -1,0 +1,23 @@
+.ripple {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 15), 1fr);
+  width: min(88%, 560px);
+  aspect-ratio: var(--cols, 15) / var(--rows, 9);
+  cursor: crosshair;
+  touch-action: manipulation;
+}
+
+/* Each cell is a hit area; the dot itself is a pseudo-element that scales with it. */
+.ripple i {
+  display: grid;
+  place-items: center;
+  color: #7b8a91;
+}
+
+.ripple i::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+}

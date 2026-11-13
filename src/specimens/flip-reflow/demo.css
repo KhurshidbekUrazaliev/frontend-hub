@@ -1,0 +1,36 @@
+.flip {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: dense;
+  gap: 8px;
+  width: min(84%, 460px);
+  aspect-ratio: 4 / 3;
+}
+
+.tile {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid rgb(238 243 244 / 0.18);
+  background: #111a20;
+  color: #a9b6bb;
+  font: 500 11px/1 'Geist Mono Variable', ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.tile:hover {
+  border-color: rgb(238 243 244 / 0.5);
+  color: #eef3f4;
+}
+
+/* One class changes the layout. Flip animates the difference. */
+.tile.is-featured {
+  grid-column: span 2;
+  grid-row: span 2;
+  border-color: #2ad2ee;
+  background: #2ad2ee;
+  color: #05080a;
+}

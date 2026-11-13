@@ -1,0 +1,54 @@
+.tilt {
+  width: min(56%, 280px);
+  aspect-ratio: 4 / 5;
+  perspective: 900px;
+}
+
+.tilt__face {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 18px;
+  border: 1px solid rgb(238 243 244 / 0.2);
+  background: #111a20;
+  transform: rotateX(calc(var(--rx, 0) * 1deg)) rotateY(calc(var(--ry, 0) * 1deg));
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Glare: a soft light that sits under the pointer. */
+.tilt__face::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at calc(var(--gx, 50) * 1%) calc(var(--gy, 50) * 1%),
+    rgb(255 255 255 / 0.18),
+    transparent 55%
+  );
+  opacity: var(--glare, 0);
+  pointer-events: none;
+}
+
+.tilt__tag,
+.tilt__foot {
+  color: #7b8a91;
+  font: 500 10px/1 'Geist Mono Variable', ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tilt__tag {
+  color: #2ad2ee;
+}
+
+.tilt__title {
+  margin: 0;
+  font-size: clamp(20px, 5.2cqi, 30px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  transform: translateZ(36px); /* floats above the face */
+}

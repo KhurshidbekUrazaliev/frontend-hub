@@ -1,0 +1,155 @@
+@import './page.css';
+@import './sheet.css';
+@import './dcard.css';
+
+/* Masonry: columns are filled by script, shortest first, so order still reads left to right. */
+.gallery {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gutter);
+  padding: var(--gutter) var(--margin) clamp(5rem, 10vw, 9rem);
+}
+
+.gallery:empty {
+  display: none;
+}
+
+.gallery__col {
+  flex: 1 1 0;
+  display: grid;
+  gap: clamp(1.75rem, 3vw, 2.75rem);
+  min-width: 0;
+}
+
+.lib-empty {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 1.25rem;
+  padding: 3rem var(--margin) clamp(6rem, 12vw, 10rem);
+  color: var(--dim);
+  font-size: var(--fs-lede);
+}
+
+.lib-empty .link {
+  color: var(--paper);
+}
+
+/* ---------- Empty state ---------- */
+
+.bench {
+  display: grid;
+  justify-items: start;
+  gap: 1.5rem;
+  margin: var(--gutter) var(--margin) clamp(5rem, 10vw, 9rem);
+  padding: clamp(2.5rem, 7vw, 6rem) clamp(1.5rem, 5vw, 5rem);
+  border: 1px dashed var(--line-2);
+  border-radius: var(--radius);
+}
+
+.bench__text {
+  max-width: 44ch;
+  color: var(--dim);
+  font-size: var(--fs-lede);
+  line-height: 1.4;
+}
+
+.bench__dev {
+  display: grid;
+  justify-items: start;
+  gap: 1.5rem;
+}
+
+/* On the local dev server the fuller note replaces the one-liner. */
+.bench:has(.bench__dev:not([hidden])) > .bench__text {
+  display: none;
+}
+
+/* ---------- Design sheet: the stage shows the piece itself ---------- */
+
+.viewer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 3vw, 3rem);
+}
+
+.viewer img,
+.viewer video {
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.viewer video {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.viewer iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--ink-1);
+}
+
+.viewer__blank {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(135deg, var(--line) 0 1px, transparent 1px 14px),
+    var(--ink-1);
+}
+
+.thumbs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem var(--margin);
+  overflow-x: auto;
+  border-top: 1px solid var(--line);
+  background: var(--ink-0);
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-3) transparent;
+}
+
+.thumb {
+  flex: none;
+  width: 4.5rem;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  opacity: 0.55;
+  transition:
+    opacity 0.2s linear,
+    border-color 0.2s linear;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb:hover,
+.thumb:focus-visible {
+  opacity: 1;
+}
+
+.thumb[aria-current='true'] {
+  border-color: var(--accent);
+  opacity: 1;
+}
+
+.sheet__summary--long {
+  display: grid;
+  gap: 0.9em;
+  font-size: 1.0625rem;
+}

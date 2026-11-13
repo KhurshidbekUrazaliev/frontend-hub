@@ -1,0 +1,229 @@
+/* Shared by the inner pages (Library, Designs): the photographic page head and the filter bar. */
+
+/* ---------- Page head: the title set over a photograph of the place ---------- */
+
+.page-head {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 1.25rem;
+  align-items: end;
+  align-content: end;
+  min-height: min(72svh, 46rem);
+  padding: calc(var(--nav-h) + clamp(3rem, 8vw, 7rem)) var(--margin) clamp(2rem, 4vw, 3.5rem);
+  overflow: clip;
+}
+
+.page-head__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--ink-1);
+}
+
+/* One photograph per region. The Library fades to the region you filter by. */
+.page-head__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+  opacity: 0;
+  scale: 1.07;
+  transition:
+    opacity 1s var(--ease-out),
+    scale 7s var(--ease-out);
+}
+
+.page-head__media img.is-on {
+  opacity: 1;
+  scale: 1;
+}
+
+.page-head__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(5 8 10 / 0.62) 0%, rgb(5 8 10 / 0.3) 34%, rgb(5 8 10 / 0.74) 78%, var(--ink-0) 100%),
+    linear-gradient(90deg, rgb(5 8 10 / 0.55) 0%, rgb(5 8 10 / 0) 62%);
+}
+
+.page-head__title {
+  grid-column: 1 / span 8;
+  padding-block: 0.04em;
+  overflow-x: visible;
+  overflow-y: clip;
+  font-size: clamp(2.9rem, 10.4vw, 11.5rem);
+  font-stretch: 116%;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.page-head__title .char {
+  display: inline-block;
+}
+
+.page-head__title sup {
+  position: relative;
+  top: 0.55em;
+  margin-left: 0.55em;
+  color: var(--accent);
+  font: 600 max(0.11em, 0.6875rem) / 1 var(--font-sans);
+  font-stretch: 100%;
+  letter-spacing: 0.14em;
+  vertical-align: top;
+}
+
+.page-head__lede {
+  grid-column: 9 / -1;
+  max-width: 34ch;
+  padding-bottom: 0.9rem;
+  color: rgb(238 243 244 / 0.88);
+  font-size: var(--fs-lede);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.js [data-page-title],
+.js [data-page-in] {
+  visibility: hidden;
+}
+
+.no-anim [data-page-title],
+.no-anim [data-page-in] {
+  visibility: visible !important;
+}
+
+.js:not(.is-ready) :is([data-page-title], [data-page-in]) {
+  animation: fh-failsafe-show 0s linear 6s forwards;
+}
+
+@media (max-width: 899px) {
+  .page-head {
+    min-height: min(64svh, 34rem);
+  }
+
+  .page-head__title,
+  .page-head__lede {
+    grid-column: 1 / -1;
+  }
+
+  .page-head__title {
+    font-size: clamp(2.6rem, 12.6vw, 6rem);
+  }
+}
+
+/* ---------- Filter bar ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-inline: var(--margin);
+  padding-block: 1.1rem;
+  border-block: 1px solid var(--line);
+}
+
+.filters__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--dim);
+  font: 600 var(--fs-mono) / 1 var(--font-sans);
+  letter-spacing: var(--track);
+  text-transform: uppercase;
+  transition:
+    color 0.25s linear,
+    background-color 0.25s linear,
+    border-color 0.25s linear;
+}
+
+.chip sup {
+  color: var(--faint);
+  font-size: 0.85em;
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+}
+
+.chip:hover,
+.chip:focus-visible {
+  border-color: var(--line-2);
+  color: var(--paper);
+}
+
+.chip[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.chip[aria-pressed='true'] sup {
+  color: inherit;
+  opacity: 0.65;
+}
+
+.filters__search {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: min(100%, 19rem);
+  border-bottom: 1px solid var(--line-2);
+  color: var(--dim);
+  transition:
+    border-color 0.25s linear,
+    color 0.25s linear;
+}
+
+.filters__search:focus-within {
+  border-color: var(--accent);
+  color: var(--paper);
+}
+
+.filters__search input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.65rem 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  color: var(--paper);
+  font: 500 0.9375rem/1.2 var(--font-sans);
+}
+
+.filters__search input::placeholder {
+  color: var(--faint);
+}
+
+.filters__search input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.filters__search kbd {
+  padding: 0.22rem 0.42rem;
+  border: 1px solid var(--line-2);
+  border-radius: 3px;
+  color: var(--faint);
+  font: 500 0.625rem / 1 var(--font-mono);
+}
+
+.filters__search:focus-within kbd {
+  visibility: hidden;
+}

@@ -1,0 +1,51 @@
+.hold-wrap {
+  position: relative;
+}
+
+.hold {
+  position: relative;
+  min-width: 232px;
+  padding: 20px 28px;
+  border: 1px solid rgb(238 243 244 / 0.4);
+  background: transparent;
+  color: #eef3f4;
+  font: 500 12px/1 'Geist Mono Variable', ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+}
+
+/* The fill carries its own dark copy of the label and is revealed left to right. */
+.hold__fill {
+  position: absolute;
+  inset: -1px;
+  display: grid;
+  place-items: center;
+  background: #2ad2ee;
+  color: #05080a;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.3s cubic-bezier(0.16, 1, 0.3, 1); /* the drain */
+}
+
+.hold.is-holding .hold__fill {
+  clip-path: inset(0);
+  transition: clip-path var(--hold, 1200ms) linear; /* the hold */
+}
+
+.hold.is-done .hold__fill {
+  clip-path: inset(0);
+  background: #eef3f4;
+  transition: background-color 0.2s;
+}
+
+.hold__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}

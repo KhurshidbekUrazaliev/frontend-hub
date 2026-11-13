@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Frontend Hub — References that run</title>
+    <meta
+      name="description"
+      content="Interface references that run in your browser. Open one, tune it, read the source."
+    />
+    <meta name="theme-color" content="#05080a" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="/src/styles/home.css" />
+    <script type="module" src="/src/home/main.js"></script>
+  </head>
+
+  <body class="page-home">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <svg class="icons" aria-hidden="true">
+      <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1.5 8h12M9 3.5 13.5 8 9 12.5" /></symbol>
+      <symbol id="i-back" viewBox="0 0 16 16"><path d="M14.5 8h-12M7 3.5 2.5 8 7 12.5" /></symbol>
+      <symbol id="i-up" viewBox="0 0 16 16"><path d="M8 14.5v-12M3.5 7 8 2.5 12.5 7" /></symbol>
+      <symbol id="i-close" viewBox="0 0 16 16"><path d="M3 3l10 10M13 3 3 13" /></symbol>
+      <symbol id="i-play" viewBox="0 0 16 16"><path d="M5.5 3.4v9.2L13 8z" fill="currentColor" stroke="none" /></symbol>
+      <!-- Profile marks for the footer. Drawn on a 24 grid, so each sets a stroke that renders at the same weight as the 1.5 of the 16-grid icons. -->
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <g stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+        </g>
+        <circle cx="16.9" cy="7.1" r="1.15" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <g stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="3" />
+          <path d="M8 10.75v5.75M11.5 16.5v-5.75M11.5 13.25a2.25 2.25 0 0 1 4.5 0v3.25" />
+        </g>
+        <circle cx="8" cy="7.6" r="1.15" fill="currentColor" stroke="none" />
+      </symbol>
+      <symbol id="i-github" viewBox="-1.5 -2.2 27 27">
+        <path stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+      </symbol>
+      <symbol id="i-telegram" viewBox="0 0 24 24">
+        <path stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" d="M15 10l-4 4 6 6 4-16-18 7 4 2 2 6 3-4" />
+      </symbol>
+    </svg>
+
+    <header class="nav" data-nav>
+      <a class="nav__logo" href="./" aria-label="Frontend Hub, home">Frontend Hub<i aria-hidden="true">.</i></a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="./library.html">Library</a>
+        <a href="./designs.html">Designs</a>
+        <a href="#regions">Regions</a>
+        <a href="#live">Live</a>
+        <a href="./admin.html" data-dev-only hidden>Admin</a>
+      </nav>
+      <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+        <span class="sr-only">Menu</span>
+        <i aria-hidden="true"></i>
+        <i aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <div class="menu" id="menu" data-menu hidden>
+      <nav class="menu__links" aria-label="Menu">
+        <a href="./library.html"><small>01</small>Library</a>
+        <a href="./designs.html"><small>02</small>Designs</a>
+        <a href="#regions"><small>03</small>Regions</a>
+        <a href="#live"><small>04</small>Live</a>
+        <a href="./admin.html" data-dev-only hidden><small>05</small>Admin</a>
+      </nav>
+    </div>
+
+    <main id="main">
+      <!-- ============ Hero: five regions, one full-screen frame ============ -->
+      <section class="hero" data-hero aria-roledescription="carousel" aria-label="The five regions of the library">
+        <div class="hero__sticky">
+          <div class="hero__backdrop" data-backdrop aria-hidden="true"></div>
+
+          <div class="hero__pull" data-pull>
+            <div class="hero__frame" data-frame>
+              <img
+                class="hero__poster"
+                data-poster
+                src="/src/media/hero-layout.jpg"
+                alt=""
+                fetchpriority="high"
+                decoding="async"
+              />
+              <canvas class="hero__canvas" data-canvas aria-hidden="true"></canvas>
+              <div class="hero__shade" aria-hidden="true"></div>
+
+              <div class="hero__body" data-hero-body>
+                <h1 class="hero__title" data-title>
+                  <span class="line"><span>Space,</span></span>
+                  <span class="line"><span>divided well.</span></span>
+                </h1>
+                <p class="hero__lede">
+                  Interface references that run in your browser. Open one, tune it, read the source.
+                </p>
+                <div class="hero__actions" data-hold-pause>
+                  <a class="cta" href="./library.html">
+                    <span class="cta__label">Explore the library</span>
+                    <span class="cta__icon" aria-hidden="true"
+                      ><svg class="icon"><use href="#i-arrow" /></svg><svg class="icon"><use href="#i-arrow" /></svg
+                    ></span>
+                  </a>
+                  <button class="play" type="button" data-reel-open>
+                    <span class="play__ring" aria-hidden="true"><svg class="icon"><use href="#i-play" /></svg></span>
+                    <span class="play__text">
+                      <span class="label">Play the reel</span>
+                      <small><span data-reel-count>7</span> live examples, one after another</small>
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="hero__chrome" data-hero-chrome>
+                <aside class="card" data-card data-hold-pause aria-label="Current region">
+                  <div class="card__inner" data-card-inner>
+                    <p class="label card__index"><b data-card-index>01</b> Region</p>
+                    <h2 class="card__name" data-card-name>Layout</h2>
+                    <p class="card__text" data-card-text>
+                      Grids, containers and reflow. The structure everything else stands on.
+                    </p>
+                    <a class="card__link label" data-card-link href="./library.html?layer=layout">
+                      <span data-card-count>2 specimens</span>
+                      <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+                    </a>
+                  </div>
+                </aside>
+
+                <div class="pager" data-pager role="group" aria-label="Choose a region">
+                  <span class="pager__now" data-pager-now aria-hidden="true">01</span>
+                  <span class="pager__name label" data-pager-name aria-hidden="true">Layout</span>
+                  <div class="pager__track" data-pager-track></div>
+                  <span class="pager__total" aria-hidden="true">05</span>
+                </div>
+
+                <dl class="stats">
+                  <div>
+                    <dt class="label">Specimens</dt>
+                    <dd data-stat="specimens">0</dd>
+                  </div>
+                  <div>
+                    <dt class="label">Regions</dt>
+                    <dd data-stat="layers">0</dd>
+                  </div>
+                  <div>
+                    <dt class="label">Lines of source</dt>
+                    <dd data-stat="lines">0</dd>
+                  </div>
+                </dl>
+
+                <p class="hero__hint label" aria-hidden="true"><i></i>Scroll</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Premise ============ -->
+      <section class="premise" aria-labelledby="premise-title">
+        <p class="label section-label" id="premise-title"><b>01</b> The premise</p>
+        <div class="premise__main">
+          <p class="premise__text" data-words>
+            Most references are pictures of interfaces. <em>These are the interfaces.</em> Every entry is a small,
+            finished piece of frontend, running on the page, with its exact source one click away.
+          </p>
+          <ul class="premise__points">
+            <li data-reveal="fade">
+              <span class="label">A</span>
+              <h3>It runs</h3>
+              <p>No screenshots and no recordings. Each example is real code executing in your browser.</p>
+            </li>
+            <li data-reveal="fade" data-delay="0.08">
+              <span class="label">B</span>
+              <h3>It bends</h3>
+              <p>Sliders expose the numbers that matter, so you can feel what a stiffer spring actually does.</p>
+            </li>
+            <li data-reveal="fade" data-delay="0.16">
+              <span class="label">C</span>
+              <h3>It shows its work</h3>
+              <p>The source you read is the file that is running. Copy it and it works.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ Regions: a descent through all five, travelled by scrolling ============ -->
+      <section class="descent" id="regions" data-descent aria-label="A descent through the five regions of the library">
+        <div class="descent__sticky">
+          <canvas class="descent__canvas" data-scene aria-hidden="true"></canvas>
+          <div class="descent__shade" aria-hidden="true"></div>
+
+          <div class="descent__intro" data-intro>
+            <p class="label section-label"><b>02</b> Regions</p>
+            <h2 class="display" data-reveal="lines">Five regions.<br />One interface.</h2>
+            <p class="descent__lede" data-reveal="fade">
+              The library is organised the way an interface is built, from the grid up to the graphics card. Keep
+              scrolling to travel down through all five.
+            </p>
+            <p class="descent__cue label" data-cue aria-hidden="true"><i></i>Scroll to descend</p>
+          </div>
+
+          <!-- What you are passing through. Mirrors the list below for assistive tech. -->
+          <aside class="card chamber" data-chamber aria-hidden="true">
+            <div class="card__inner">
+              <p class="label card__index"><b data-chamber-index>01</b> Region</p>
+              <p class="card__name" data-chamber-name>Layout</p>
+              <p class="card__text" data-chamber-text></p>
+              <a class="card__link label" data-chamber-link href="./library.html" tabindex="-1">
+                <span data-chamber-count></span>
+                <svg class="icon"><use href="#i-arrow" /></svg>
+              </a>
+            </div>
+          </aside>
+
+          <div class="gauge" data-gauge aria-hidden="true">
+            <span class="label gauge__label">Depth</span>
+            <div class="gauge__track" data-gauge-track><i class="gauge__mark" data-gauge-mark></i></div>
+          </div>
+        </div>
+
+        <!-- The same five regions as plain content: read by assistive tech, and
+             shown instead of the scene where WebGL or motion is unavailable. -->
+        <ol class="flat" data-flat></ol>
+      </section>
+
+      <!-- ============ Live: every specimen, and a stage that runs the one you point at ============ -->
+      <section class="manifest" id="live" aria-labelledby="live-title">
+        <header class="manifest__head">
+          <div>
+            <p class="label section-label"><b>03</b> Live</p>
+            <h2 class="display" id="live-title" data-reveal="lines">Running,<br />not recorded.</h2>
+          </div>
+          <p class="manifest__intro" data-reveal="fade">
+            All <span data-total>12</span> specimens, live. Point at a row and it starts on the stage. Open one to tune
+            it and read its source.
+          </p>
+        </header>
+        <div class="manifest__body">
+          <div class="manifest__list" data-manifest-list role="list"></div>
+          <div class="manifest__side">
+            <div class="stage" data-stage>
+              <div class="stage__screen" data-cursor="Play"><div class="specimen-host" data-stage-host></div></div>
+              <div class="stage__caption">
+                <span class="label stage__id" data-stage-id></span>
+                <span class="stage__facts" data-stage-facts></span>
+                <a class="stage__link label" data-stage-link href="./library.html">
+                  Open with source <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Designs placed through the admin panel ============ -->
+      <section class="bench" data-bench hidden aria-labelledby="bench-title">
+        <header class="bench__head">
+          <div>
+            <p class="label section-label"><b>04</b> Designs</p>
+            <h2 class="display" id="bench-title" data-reveal="lines">From the bench.</h2>
+          </div>
+          <div class="bench__side">
+            <p data-reveal="fade">Finished work, placed by hand: screens, recordings, live sites and runnable code.</p>
+            <a class="textlink label" href="./designs.html" data-reveal="fade"
+              >All designs <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg
+            ></a>
+          </div>
+        </header>
+        <div class="bench__grid" data-bench-grid></div>
+      </section>
+
+      <!-- ============ Close ============ -->
+      <section class="end" data-end aria-labelledby="end-title">
+        <div class="end__media" aria-hidden="true">
+          <img src="/src/media/end-pier.jpg" alt="" loading="lazy" decoding="async" data-end-image />
+        </div>
+        <div class="end__body">
+          <p class="label" data-reveal="fade">Start anywhere</p>
+          <h2 class="display end__title" id="end-title" data-reveal="lines">The library<br />is open.</h2>
+          <a class="cta cta--light" href="./library.html" data-reveal="fade" data-delay="0.2">
+            <span class="cta__label">Enter the library</span>
+            <span class="cta__icon" aria-hidden="true"
+              ><svg class="icon"><use href="#i-arrow" /></svg><svg class="icon"><use href="#i-arrow" /></svg
+            ></span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot__grid">
+        <p class="foot__blurb">
+          A reference library for people who build interfaces. Everything here is running code you can open, tune and
+          take with you.
+        </p>
+        <nav class="foot__col" aria-label="Explore">
+          <p class="label">Explore</p>
+          <a href="./library.html">Library</a>
+          <a href="./designs.html">Designs</a>
+          <a href="#regions">Regions</a>
+          <a href="./admin.html" data-dev-only hidden>Admin</a>
+        </nav>
+        <div class="foot__col">
+          <p class="label">Colophon</p>
+          <p>Set in Archivo.</p>
+          <p>Built with Vite, GSAP, Three.js and Lenis.</p>
+          <p>Photographs generated with Gemini.</p>
+        </div>
+        <div class="foot__col">
+          <p class="label">Contact</p>
+          <a href="mailto:ummahfaris@gmail.com">ummahfaris@<wbr />gmail.com</a>
+          <p>Busan, South Korea</p>
+        </div>
+        <nav class="foot__col foot__social" aria-label="Elsewhere">
+          <p class="label">Elsewhere</p>
+          <a href="https://www.instagram.com/cfarisc19/" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-instagram" /></svg><span>Instagram</span>
+          </a>
+          <a href="https://www.linkedin.com/in/khurshidbekurazaliev" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg><span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/KhurshidbekUrazaliev" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg><span>GitHub</span>
+          </a>
+          <a href="https://t.me/lu3frv" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-telegram" /></svg><span>Telegram</span>
+          </a>
+        </nav>
+      </div>
+      <p class="foot__mark" data-word aria-hidden="true">Frontend Hub</p>
+      <div class="foot__base label">
+        <span>© 2026 Frontend Hub</span>
+        <button type="button" data-top>Back to top</button>
+      </div>
+    </footer>
+
+    <div class="curtain" aria-hidden="true">
+      <div class="curtain__label"><span>Frontend Hub</span></div>
+    </div>
+    <div class="cursor-label" aria-hidden="true"></div>
+  </body>
+</html>
