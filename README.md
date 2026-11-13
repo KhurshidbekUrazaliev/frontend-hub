@@ -2,7 +2,7 @@
 
 **Interface references that run in your browser. Open one, tune it, read the source.**
 
-Live site: **https://khurshidbekurazaliev.github.io/frontend-hub/**
+Live site: **https://frontendhub.site**
 
 Frontend Hub is a place for frontend developers, designers and UI makers to find references, examples and inspiration. Instead of screenshots it shows working code: every example runs live on the page, next to the source that drives it.
 
