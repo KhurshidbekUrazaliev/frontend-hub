@@ -2,7 +2,7 @@
 
 **Interface references that run in your browser. Open one, tune it, read the source.**
 
-Live site: **https://frontendhub.site**
+🌐 **Live site: [frontendhub.site](https://frontendhub.site)**
 
 Frontend Hub is a place for frontend developers, designers and UI makers to find references, examples and inspiration. Instead of screenshots it shows working code: every example runs live on the page, next to the source that drives it.
 
@@ -66,6 +66,8 @@ content/         design data and uploaded media
 ## Deployment
 
 Every push to `main` triggers [the GitHub Pages workflow](.github/workflows/deploy.yml). It installs dependencies, runs `npm run build` and publishes `dist/`. A deploy usually takes about a minute.
+
+The site is served at the custom domain **[frontendhub.site](https://frontendhub.site)**, with HTTPS enforced. The domain's DNS points to GitHub Pages, and `www.frontendhub.site` and the old `github.io` address both redirect to it.
 
 ## License
 
